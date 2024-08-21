@@ -3,9 +3,16 @@ import Appbar from "@/components/Appbar"
 import CheckFeature from "@/components/CheckFeature"
 import Input from "@/components/Input"
 import PrimaryButton from "@/components/buttons/PrimaryButton"
+import axios from "axios"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
+import { BACKEND_URL } from "../config"
 
 const Signup = () => {
+
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const router = useRouter()
   return (
@@ -27,13 +34,20 @@ const Signup = () => {
             <CheckFeature title="14-day trial of premium features & apps"/>
             </div>
         </div>
-    <div className="flex-1 pt-8 px-4 pb-8 border mt-12 rounded">
-        <Input label="Name" placeholder="Your Name" type="text" onChange={(e) => {}}/>
-        <Input label="Work Email" placeholder="Your Email" type="text" onChange={(e) => {}}/>
-        <Input label="Password" placeholder="Password" type="password" onChange={(e) => {}}/>
+    <div className="flex-1 pt-8` px-4 pb-8 border mt-12 rounded">
+        <Input label="Name" placeholder="Your Name" type="text" onChange={(e) => {
+            setName(e.target.value)
+        }}/>
+        <Input label="Work Email" placeholder="Your Email" type="text" onChange={(e) => { setEmail(e.target.value)}}/>
+        <Input label="Password" placeholder="Password" type="password" onChange={(e) => { setPassword(e.target.value)}}/>
         <div className="pt-4">
-        <PrimaryButton size="big" onClick={() => {
-            router.push('/')
+        <PrimaryButton size="big" onClick={async () => {
+            const res = await axios.post(`${BACKEND_URL}/api/v1/user/signup`, {
+                username: email,
+                password,
+                name
+            })
+            router.push('/login')
         }} >Get started free</PrimaryButton>
         </div>
         </div>
