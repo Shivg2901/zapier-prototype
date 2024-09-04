@@ -3,8 +3,8 @@ import { prismaClient } from "../db";
 
 const router = Router();
 
-router.get("/available", (req, res) => {
-    const availableTrigger = prismaClient.availableTrigger.findMany({});
+router.get("/available", async (req, res) => {
+    const availableTrigger = await prismaClient.availableTrigger.findMany({});
     return res.json({
         availableTrigger
     })
