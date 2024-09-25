@@ -6,6 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsc -b && node dist/index.js"
   },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -19,7 +22,11 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "prisma": "^5.17.0",
-    "typescript": "^5.5.4",
     "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
   }
 }

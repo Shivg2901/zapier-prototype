@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es2016",
+      "module": "commonjs",
+      "outDir": "../dist/prisma",  // Different output folder for prisma files
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "skipLibCheck": true
+    },
+    "include": [
+      "./**/*"  // Only include files in the prisma directory
+    ]
+  }
+  

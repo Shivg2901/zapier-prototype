@@ -7,9 +7,13 @@ const router = Router();
 
 router.post("/", authMiddleware, async (req, res) => {
     // @ts-ignore
+
     const id: string = req.id;
     const body = req.body;
     const parsedData = ZapCreateSchema.safeParse(body);
+    console.log(id);
+    console.log(body);
+    console.log(parsedData)
     
     if (!parsedData.success) {
         return res.status(411).json({
