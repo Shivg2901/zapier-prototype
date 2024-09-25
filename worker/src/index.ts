@@ -5,6 +5,7 @@ import { JsonObject } from "@prisma/client/runtime/library";
 import { Kafka } from "kafkajs"
 import { parse } from "./utils";
 import { sendSol } from "./sol";
+import { sendEmail } from "./email";
 const TOPIC_NAME = "zap-events"
 
 const prismaClient = new PrismaClient();
@@ -88,6 +89,7 @@ async function main() {
                 if (currentAction.metadata && zapRunMetaData) {
                     const to = parse((currentAction.metadata as JsonObject)?.email as string, zapRunMetaData);
                     const body = parse((currentAction.metadata as JsonObject)?.body as string, zapRunMetaData);
+                    sendEmail(to, body)
                     console.log("email " + to + " " + body);
                 }
             }
