@@ -5,10 +5,6 @@ const client = new PrismaClient();
 
 app.use(express.json())
 
-
-// https://hooks.zapier.com/hooks/catch/19672132/2un00ah/
-//passwords
-
 app.post('/hooks/catch/:userId/:zapId', async (req, res) => {
     const userId = req.params.userId;
     const zapId = req.params.zapId;
