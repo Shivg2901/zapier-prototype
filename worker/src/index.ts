@@ -11,9 +11,9 @@ const TOPIC_NAME = "zap-events"
 const prismaClient = new PrismaClient();
 
 const kafka = new Kafka({
-    clientId: "outbox-processors",
-    brokers: ['localhost:9092']
-})
+    clientId: process.env.KAFKA_CLIENT_ID || "outbox-processors",
+    brokers: [process.env.KAFKA_BROKERS || 'localhost:9092'],
+});
 
 async function main() {
     const consumer = kafka.consumer({

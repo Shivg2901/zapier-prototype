@@ -15,5 +15,8 @@
     "kafkajs": "^2.2.4",
     "prisma": "^5.17.0",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4"
   }
 }

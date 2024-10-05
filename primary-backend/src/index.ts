@@ -14,4 +14,9 @@ app.use('/api/v1/zap', zapRouter);
 app.use('/api/v1/trigger', triggerRouter);
 app.use('/api/v1/action', actionRouter);
 
-app.listen(3000)
+const PORT = process.env.PORT || 3005;
+
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
