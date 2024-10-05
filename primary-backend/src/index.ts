@@ -14,7 +14,7 @@ app.use('/api/v1/zap', zapRouter);
 app.use('/api/v1/trigger', triggerRouter);
 app.use('/api/v1/action', actionRouter);
 
-const PORT = process.env.PORT || 3005;
+const PORT = process.env.PORT || 3001;
 
 
 app.listen(PORT, () => {
