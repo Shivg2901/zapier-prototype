@@ -58,12 +58,12 @@ function useZaps() {
 const Dashboard = () => {
     const {loading, zaps} = useZaps()
     const router = useRouter()
-    const current = new Date();
-
-    const options = { month: "short", day: "2-digit" };
+    const now = new Date();
+    
+    const date = { month: "short", day: "2-digit" };
 
     const formattedDate = now
-      .toLocaleDateString("en-US", options)
+      .toLocaleDateString("en-US", date)
       .replace(",", "");
 
 
