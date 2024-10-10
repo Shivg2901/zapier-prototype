@@ -34,3 +34,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+## Summary
+
+This guide explains how to set up and run a Next.js project created with `create-next-app`. Start the development server with `npm`, `yarn`, `pnpm`, or `bun`, and access the app at [http://localhost:3000](http://localhost:3000). Edit `app/page.tsx` to see live updates. The project includes font optimization using `next/font`. For more details, check the [Next.js documentation](https://nextjs.org/docs). Deployment is easiest via the [Vercel Platform](https://vercel.com/new).
