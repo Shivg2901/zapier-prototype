@@ -58,6 +58,14 @@ function useZaps() {
 const Dashboard = () => {
     const {loading, zaps} = useZaps()
     const router = useRouter()
+    const current = new Date();
+
+    const options = { month: "short", day: "2-digit" };
+
+    const formattedDate = now
+      .toLocaleDateString("en-US", options)
+      .replace(",", "");
+
 
   return (
     <div>
@@ -83,39 +91,53 @@ function ZapTable({zaps}: {zaps: Zap[]}) {
 
     const router = useRouter()
 
-    return <div className="p-8 max-w-screen-lg w-full">
-        
-  <div className="flex">
-    
-      <div className="flex-1">Name</div>
-      <div className="flex-1">ID</div>
-      <div className="flex-1">Created on</div>
-      <div className="flex-1">Webhook URL</div>
-      <div className="flex-1">Go</div>
-  </div>
-  
-    {zaps.map(z => (
-        <div className="flex border-b border-t py-4 items-center" key={z.id}>
-        <div className="flex-1 flex flex-wrap items-center">
-            <div className="flex flex-wrap">
-                <img src={z.trigger.type.image} width={30} alt="Trigger" className="mr-2 mb-2" />
-                {z.actions.map(x => (
-                    <img key={x.id} src={x.type.image} width={30} alt="Action" className="mr-2 mb-2" />
+    return (
+      <div className="p-8 max-w-screen-lg w-full">
+        <div className="flex">
+          <div className="flex-1">Name</div>
+          <div className="flex-1">ID</div>
+          <div className="flex-1">Created on</div>
+          <div className="flex-1">Webhook URL</div>
+          <div className="flex-1">Go</div>
+        </div>
+
+        {zaps.map((z) => (
+          <div className="flex border-b border-t py-4 items-center" key={z.id}>
+            <div className="flex-1 flex flex-wrap items-center">
+              <div className="flex flex-wrap">
+                <img
+                  src={z.trigger.type.image}
+                  width={30}
+                  alt="Trigger"
+                  className="mr-2 mb-2"
+                />
+                {z.actions.map((x) => (
+                  <img
+                    key={x.id}
+                    src={x.type.image}
+                    width={30}
+                    alt="Action"
+                    className="mr-2 mb-2"
+                  />
                 ))}
+              </div>
             </div>
-        </div>
-        <div className="flex-1">{z.id}</div>
-        <div className="flex-1">Nov 13</div>
-        <div className="flex-1">{`${HOOKS_URL}/hooks/catch/1/${z.id}`}</div>
-        <div className="flex-1">
-            <LinkButton onClick={() => {
-                router.push("/zap/" + z.id)
-            }}>Go</LinkButton>
-        </div>
-    </div>
-    ))}
-    
-</div>
+            <div className="flex-1">{z.id}</div>
+            <div className="flex-1">{formattedDate}</div>
+            <div className="flex-1">{`${HOOKS_URL}/hooks/catch/1/${z.id}`}</div>
+            <div className="flex-1">
+              <LinkButton
+                onClick={() => {
+                  router.push("/zap/" + z.id);
+                }}
+              >
+                Go
+              </LinkButton>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
 }
 
 export default Dashboard
