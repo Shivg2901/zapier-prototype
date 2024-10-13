@@ -144,7 +144,7 @@ function ZapTableLoading() {
                     <div className="h-6 bg-gray-300 rounded w-10"></div>
                 </div>
             ))
-            }//just a commit
+            }
         </div>
     )
 }
