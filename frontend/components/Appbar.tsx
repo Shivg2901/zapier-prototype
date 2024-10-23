@@ -11,9 +11,9 @@ const Appbar = () => {
 
     return (
         <div className="flex border-b justify-between p-4">
-            <div className="flex flex-col justify-center text-2xl font-extrabold">
-                Zapier
-            </div>
+            {/* <div className="flex flex-col justify-center text-2xl font-extrabold"> */}
+                <img src="./Zapier_logo.png"    className="h-10 w-auto md:h-12 lg:h-14 object-contain"  alt="" />
+            {/* </div> */}
             {showAuthButtons && (
                 <div className="flex">
                     <div className="pr-4">
